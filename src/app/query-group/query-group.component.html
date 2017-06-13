@@ -1,0 +1,32 @@
+﻿<dl id="builder-basic_group_0" class="rules-group-container">
+    <dt class="rules-group-header">
+    <div class="btn-group pull-right group-actions">
+      <button type="button" class="btn btn-xs btn-success" data-add="rule" (click)="addRule()">
+        <i class="glyphicon glyphicon-plus"></i> Add rule
+      </button>
+      <button type="button" class="btn btn-xs btn-success" data-add="group" (click)="addGroup()">
+        <i class="glyphicon glyphicon-plus-sign"></i> Add group
+      </button>
+    </div>
+    <div class="btn-group group-conditions">
+      <label class="btn btn-primary" [(ngModel)]="condition"
+             btnRadio="AND">AND</label>
+
+      <label class="btn btn-primary" [(ngModel)]="condition"
+             btnRadio="OR">OR</label>
+    </div>
+    <!--<div class="error-container" data-toggle="tooltip">
+      <i class="glyphicon glyphicon-warning-sign"></i></div>-->
+  </dt>
+    <dd class="rules-group-body">
+        <ul class="rules-list" *ngFor="let rule of rules;let i=index">
+            <li class="rule-container" *ngIf="!rule.condition">
+                <app-query-condition></app-query-condition>
+            </li>
+            <li class="" *ngIf="rule.condition">
+                <app-query-group></app-query-group>
+            </li>
+
+        </ul>
+    </dd>
+</dl>

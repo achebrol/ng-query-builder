@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~jQuery-QueryBuilder/dist/css/query-builder.default.min.css";
+.query-builder .rules-group-container {
+    padding: 10px 10px 6px;
+    border: 1px solid #DCC896;
+    background: rgba(250, 240, 210, .5);
+}
