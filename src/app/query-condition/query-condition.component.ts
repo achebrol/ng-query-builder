@@ -8,6 +8,7 @@ import { IRule } from "../condition";
 })
 export class QueryConditionComponent implements OnInit {
 @Input() rule:IRule;
+@Input() filters: any;
 @Output() deleted: EventEmitter<IRule>= new EventEmitter<IRule>();
   constructor() { }
 

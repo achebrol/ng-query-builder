@@ -8,6 +8,7 @@ import { IGroup, IRule } from "../condition";
 })
 export class QueryGroupComponent implements OnInit {
 @Input() group: IGroup;
+@Input() filters: any;
 
   constructor() { }
 

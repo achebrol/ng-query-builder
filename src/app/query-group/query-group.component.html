@@ -21,8 +21,8 @@
     <dd class="rules-group-body">
         <ul class="rules-list">
             <li class="rule-container" *ngFor="let rule of group.rules;let i=index">
-                <app-query-condition *ngIf="!rule.condition" [rule]="rule" (deleted)="onRuleDelete(rule)"></app-query-condition>
-                <app-query-group *ngIf="rule.condition" [group]="rule"></app-query-group>
+                <app-query-condition *ngIf="!rule.condition" [rule]="rule" [filters]="filters" (deleted)="onRuleDelete(rule)"></app-query-condition>
+                <app-query-group *ngIf="rule.condition" [group]="rule" [filters]="filters"></app-query-group>
             </li>
 
 
