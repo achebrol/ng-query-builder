@@ -7,17 +7,21 @@ import { IGroup, IRule } from "../condition";
   styleUrls: ['./query-group.component.css']
 })
 export class QueryGroupComponent implements OnInit {
-@Input() condition="AND";
-@Input() rules:Array<IRule|IGroup>=[];
-@Input() not:boolean=false;
+@Input() group: IGroup;
+
   constructor() { }
 
   ngOnInit() {
   }
 addRule(){
-this.rules.push(<IRule>{});
+this.group.rules.push(<IRule>{});
 }
 addGroup(){
-this.rules.push(<IGroup>{condition:'AND',not:false,rules:[]});
+this.group.rules.push(<IGroup>{condition:'AND',not:false,rules:[]});
+}
+onRuleDelete(rule:IRule){
+  let idx = this.group.rules.indexOf(rule);
+  this.group.rules.splice(idx,1);
+
 }
 }

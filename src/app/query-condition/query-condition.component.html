@@ -1,8 +1,17 @@
 <div class="rule-header">
-    <div class="btn-group pull-right rule-actions"> <button type="button" class="btn btn-xs btn-danger" data-delete="rule">         <i class="glyphicon glyphicon-remove"></i> Delete       </button> </div>
+    <div class="btn-group pull-right rule-actions">
+        <button type="button" class="btn btn-xs btn-danger" (click)="deleted.emit(rule)">        
+         <i class="glyphicon glyphicon-remove"></i> Delete       </button> </div>
 </div>
 <!--<div class="error-container" data-toggle="tooltip">
   <i class="glyphicon glyphicon-warning-sign"></i></div>-->
-<div class="rule-filter-container"><select class="form-control" name="builder-basic_rule_1_filter">        <option value="-1">------</option>                <option value="name">Name</option>             <option value="category">Category</option>              <option value="in_stock">In stock</option>             <option value="price">Price</option>             <option value="id">Identifier</option>       </select></div>
-<div class="rule-operator-container"><select class="form-control " name="builder-basic_rule_1_operator">             <option value="equal">equal</option>             <option value="not_equal">not equal</option>             <option value="in">in</option>             <option value="not_in">not in</option>             <option value="is_null">is null</option>             <option value="is_not_null">is not null</option>       </select></div>
-<div class="rule-value-container"><select class="form-control" name="builder-basic_rule_1_value_0"><option value="1">Books</option> <option value="2">Movies</option> <option value="3">Music</option> <option value="4">Tools</option> <option value="5">Goodies</option> <option value="6">Clothes</option> </select></div>
+<div class="rule-filter-container">
+    <select class="form-control" [(ngModel)]="rule.field" name="builder-basic_rule_1_filter">        <option value="-1">------</option>                <option value="name">Name</option>             <option value="category">Category</option>              <option value="in_stock">In stock</option>             <option value="price">Price</option>             <option value="id">Identifier</option>       </select></div>
+<div class="rule-operator-container">
+    <select class="form-control " [(ngModel)]="rule.operator" name="builder-basic_rule_1_operator">             <option value="equal">equal</option>             <option value="not_equal">not equal</option>             <option value="in">in</option>             <option value="not_in">not in</option>             <option value="is_null">is null</option>             <option value="is_not_null">is not null</option>       </select></div>
+<div class="rule-value-container">
+    <select class="form-control" [(ngModel)]="rule.value" name="builder-basic_rule_1_value_0">
+      <option value="1">Books</option> <option value="2">Movies</option> 
+      <option value="3">Music</option> <option value="4">Tools</option>
+       <option value="5">Goodies</option> <option value="6">Clothes</option> </select>
+</div>

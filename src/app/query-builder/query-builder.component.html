@@ -1,5 +1,12 @@
-<div class="container">
-    <app-query-group [condition]="query.condition" [rules]="query.rules" [not]="query.not">
+<div class="container query-builder form-inline">
+    <ul class="list-unstyled">
+        <li>
+            <app-query-group [group]="query" [filters]="filters">
 
-    </app-query-group>
+            </app-query-group>
+        </li>
+    </ul>
+    <pre> 
+    {{query | json}}
+</pre>
 </div>

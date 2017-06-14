@@ -9,23 +9,24 @@
       </button>
     </div>
     <div class="btn-group group-conditions">
-      <label class="btn btn-primary" [(ngModel)]="condition"
+      <label class="btn btn-xs btn-primary" [(ngModel)]="group.condition"
              btnRadio="AND">AND</label>
 
-      <label class="btn btn-primary" [(ngModel)]="condition"
+      <label class="btn btn-xs btn-primary" [(ngModel)]="group.condition"
              btnRadio="OR">OR</label>
     </div>
     <!--<div class="error-container" data-toggle="tooltip">
       <i class="glyphicon glyphicon-warning-sign"></i></div>-->
   </dt>
     <dd class="rules-group-body">
-        <ul class="rules-list" *ngFor="let rule of rules;let i=index">
-            <li class="rule-container" *ngIf="!rule.condition">
-                <app-query-condition></app-query-condition>
+        <ul class="rules-list">
+            <li class="rule-container" *ngFor="let rule of group.rules;let i=index">
+                <app-query-condition *ngIf="!rule.condition" [rule]="rule" (deleted)="onRuleDelete(rule)"></app-query-condition>
+                <app-query-group *ngIf="rule.condition" [group]="rule"></app-query-group>
             </li>
-            <li class="" *ngIf="rule.condition">
-                <app-query-group></app-query-group>
-            </li>
+
+
+
 
         </ul>
     </dd>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IRule } from "../condition";
 
 @Component({
@@ -8,6 +8,7 @@ import { IRule } from "../condition";
 })
 export class QueryConditionComponent implements OnInit {
 @Input() rule:IRule;
+@Output() deleted: EventEmitter<IRule>= new EventEmitter<IRule>();
   constructor() { }
 
   ngOnInit() {
