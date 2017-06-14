@@ -34,5 +34,5 @@ export interface IFilter{
         label:string,
         type: string,
         input: string,
-        values?:{key:number};
+        values?:{[key:number]:string};
 }
