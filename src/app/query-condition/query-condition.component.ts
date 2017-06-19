@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IRule, IFilter } from "../condition";
-
+let sequence_number=0;
 @Component({
   selector: 'app-query-condition',
   templateUrl: './query-condition.component.html',
@@ -11,6 +11,7 @@ export class QueryConditionComponent implements OnInit {
 @Input() filters: IFilter[];
 @Output() deleted: EventEmitter<IRule>= new EventEmitter<IRule>();
 public currentFilter=null;
+  public uniqueId = `query_condition_${sequence_number++}`;
   constructor() { }
 
   ngOnInit() {

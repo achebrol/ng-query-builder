@@ -20,4 +20,6 @@ export interface IFilter{
         input: string;
         values?:{[key:number]:string};
         operators?:string[];
+        placeholder?:string;
+        validations?:{[key:string]:any};
 }

@@ -12,6 +12,12 @@ export class QueryBuilderComponent implements OnInit {
         id: 'name',
         label: 'Name',
         type: 'string'
+    },
+    {
+        id: 'ship_date',
+        label: 'Shipping Date',
+        type:'date',
+        input: 'date'
     }, {
         id: 'category',
         label: 'Category',

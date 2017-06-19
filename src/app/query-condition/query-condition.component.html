@@ -22,9 +22,30 @@
                                    </select>
 </div>
 <div class="rule-value-container">
+    <div [ngSwitch]="currentFilter?.input">
 
-    <input type="text" class="form-control" [(ngModel)]="rule.value" *ngIf="currentFilter?.type == 'string'" />
-    <select class="form-control" [(ngModel)]="rule.value" *ngIf="currentFilter?.input=='select'">
+        <input type="email" [placeholder]="currentFilter.placeholder" class="form-control" [(ngModel)]="rule.value" *ngSwitchCase="'email'" />
+        <input type="month" [placeholder]="currentFilter.placeholder" class="form-control" [(ngModel)]="rule.value" *ngSwitchCase="'month'" />
+        <input type="number" [placeholder]="currentFilter.placeholder" class="form-control" [(ngModel)]="rule.value" *ngSwitchCase="'double'" />
+
+        <select class="form-control" [(ngModel)]="rule.value" *ngSwitchCase="'select'">
       <option *ngFor="let v of values" [value]="v">{{currentFilter.values[v]}}</option> <option value="2">Movies</option> 
        </select>
+        <datetime [timepicker]="false" [(ngModel)]="rule.value" *ngSwitchCase="'date'"></datetime>
+        <ng-container *ngSwitchCase="'radio'">
+            <div class="radio abc-radio abc-radio-danger" *ngFor="let rdo of values;let i=index">
+                <input type="radio" [name]="uniqueId" [value]="rdo" [attr.id]="uniqueId+'_'+ i" [(ngModel)]="rule.value" />
+                <label [attr.for]="uniqueId+'_'+ i">
+        {{currentFilter.values[rdo]}}
+    </label>
+            </div>
+
+
+
+        </ng-container>
+
+        <input [type]="currentFilter?.type=='double'?'number':'text'" [max]="currentFilter?.validation?.max" [min]="currentFilter?.validation?.min" [step]="currentFilter?.validation?.step" class="form-control" [(ngModel)]="rule.value" *ngSwitchDefault/>
+
+    </div>
+
 </div>
