@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { IGroup } from "../condition";
+import { Component, OnInit, Input } from '@angular/core';
+import { IGroup, IOptions, IFilter } from "../condition";
 
 @Component({
   selector: 'app-query-builder',
@@ -7,62 +7,17 @@ import { IGroup } from "../condition";
   styleUrls: ['./query-builder.component.css']
 })
 export class QueryBuilderComponent implements OnInit {
-  public query:IGroup={condition:'AND',rules:[],not:false};
-  public filters=[{
-        id: 'name',
-        label: 'Name',
-        type: 'string'
-    },
-    {
-        id: 'ship_date',
-        label: 'Shipping Date',
-        type:'date',
-        input: 'date'
-    }, {
-        id: 'category',
-        label: 'Category',
-        type: 'integer',
-        input: 'select',
-        values: {
-            1: 'Books',
-            2: 'Movies',
-            3: 'Music',
-            4: 'Tools',
-            5: 'Goodies',
-            6: 'Clothes'
-        },
-        operators: ['equal', 'not_equal', 'in', 'not_in', 'is_null', 'is_not_null']
-    }, {
-        id: 'in_stock',
-        label: 'In stock',
-        type: 'integer',
-        input: 'radio',
-        values: {
-            1: 'Yes',
-            0: 'No'
-        },
-        operators: ['equal']
-    }, {
-        id: 'price',
-        label: 'Price',
-        type: 'double',
-        validation: {
-            min: 0,
-            step: 0.01
-        }
-    }, {
-        id: 'id',
-        label: 'Identifier',
-        type: 'string',
-        placeholder: '____-____-____',
-        operators: ['equal', 'not_equal'],
-        validation: {
-            format: /^.{4}-.{4}-.{4}$/
-        }
-    }];
+  @Input() options:IOptions;
+  public rules:IGroup={condition:'AND',rules:[],not:false};
+  public filters:IFilter[];
+  //http://querybuilder.js.org/#filters
+  
   constructor() { }
 
   ngOnInit() {
+      this.rules = this.options.rules;
+      this.filters = this.options.filters;
+
   }
 
 }

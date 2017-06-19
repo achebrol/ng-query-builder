@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IGroup, IRule } from "../condition";
+import { IGroup, IRule, IOptions } from "../condition";
 
 @Component({
   selector: 'app-query-group',
@@ -8,7 +8,7 @@ import { IGroup, IRule } from "../condition";
 })
 export class QueryGroupComponent implements OnInit {
 @Input() group: IGroup;
-@Input() filters: any;
+@Input() options:IOptions;
 
   constructor() { }
 

@@ -1,12 +1,12 @@
 <div class="container query-builder form-inline">
     <ul class="list-unstyled">
         <li>
-            <app-query-group [group]="query" [filters]="filters">
+            <app-query-group [group]="options.rules" [options]="options">
 
             </app-query-group>
         </li>
     </ul>
     <pre> 
-    {{query | json}}
+    {{options.rules | json}}
 </pre>
 </div>
