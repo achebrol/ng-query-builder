@@ -8,8 +8,7 @@ import { AppComponent } from './app.component';
 import { QueryBuilderComponent } from './query-builder/query-builder.component';
 import { QueryGroupComponent } from './query-group/query-group.component';
 import { QueryConditionComponent } from './query-condition/query-condition.component';
-//import * as $ from 'jquery/dist/jquery';
-
+import * as $ from 'jquery';
 @NgModule({
   declarations: [
     AppComponent,
